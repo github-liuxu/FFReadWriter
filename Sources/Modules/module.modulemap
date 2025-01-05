@@ -1,0 +1,5 @@
+framework module FFReadWriter {
+    umbrella header "FFReadWriter.h"
+    export *
+    module * { export * }
+}
