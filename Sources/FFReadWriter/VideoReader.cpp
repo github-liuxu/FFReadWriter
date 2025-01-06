@@ -78,6 +78,10 @@ bool VideoReader::Open(const std::string& filename) {
     return true;
 }
 
+void VideoReader::SetDecodeType(LXPixelType type) {
+    m_type = type;
+}
+
 void VideoReader::SetRange(int64_t start, int64_t end) {
     m_start = start;
     m_end = end;

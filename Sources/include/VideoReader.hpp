@@ -22,6 +22,7 @@ public:
     ~VideoReader();
     bool Open(const std::string& filename);
     void SetRange(int64_t start, int64_t end);
+    void SetDecodeType(LXPixelType type);
     void Close();
     AVFrame* ReadAVFrame();
     LXVideoFrame* ReadVideoFrame();
@@ -36,6 +37,7 @@ private:
     int videoStreamIndex;
     int64_t bitRate;
     int64_t m_start, m_end;
+    LXPixelType m_type;
 };
 
 

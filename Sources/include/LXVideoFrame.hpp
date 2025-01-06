@@ -10,6 +10,13 @@
 #include <stdio.h>
 #include <stdint.h>
 
+enum LXPixelType {
+    kPixelTypeYUV420P = 0,
+    kPixelTypeARGB32 = 1,
+    kPixelTypeNV12 = 2,
+    kPixelTypeNV21 = 3,
+};
+
 struct LXFrameBuffer {
     uint8_t *data[8];
     int linesize[8];

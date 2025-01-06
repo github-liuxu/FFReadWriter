@@ -10,8 +10,9 @@ endif()
 
 # 添加你的源文件
 aux_source_directory(./Sources/FFReadWriter SRC_LIST)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Sources/FFReadWriter/Objc/objc.cmake)
 
-option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 if(BUILD_SHARED_LIBS)
     add_library(FFReadWriter SHARED ${SRC_LIST})
 else()
@@ -25,6 +26,7 @@ target_link_libraries(FFReadWriter PRIVATE
     iconv
     z
     bz2
+    "-framework Foundation"
     "-framework AVFoundation"
     "-framework CoreVideo"
     "-framework CoreMedia"
@@ -58,6 +60,7 @@ target_include_directories(FFReadWriter PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/FFReadWriter/ffmpeg-sdk-osx/include
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/include
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/FFReadWriter
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/FFReadWriter/Objc
 )
 
 # 设置动态库输出路径
